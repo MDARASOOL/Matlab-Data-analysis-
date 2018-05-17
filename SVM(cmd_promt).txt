@@ -1,0 +1,16 @@
+these codes are for Support vector machine and use them on command  promt
+
+svm-scale -l -1 -u 1 -s trainingTask4 trainingSet.dat > trainingSet.dat.scale
+
+"testing the data with different values of c and g"
+
+svm-train -c 5 -g 0.01 -v 5 trainingSet.dat.scale       
+svm-train -c 5 -g 0.005 -v 5 trainingSet.dat.scale
+svm-train -c 10 -g 0.001 -v 5 trainingSet.dat.scale
+
+"training the data with best values of c and g"
+svm-train -c 5 -g 0.01 trainingSet.dat.scale trainingSet.dat.model
+svm-scale -l -1 -u 1 -s trainingTask4 testingSet.dat > testingSet.dat.scale
+svm-predict testingSet.dat.scale trainingSet.dat.model predicted.output
+
+
